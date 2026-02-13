@@ -65,3 +65,17 @@ Common examples:
 
 ### Acknowledgements
 The implementation of this repository is built upon [veRL](https://github.com/volcengine/verl) and [Beyond-Log-Likelihood](https://github.com/GaotangLi/Beyond-Log-Likelihood). We sincerely appreciate the efforts of these teams for their contributions to open-source research and development.
+
+### Citation
+If you find this repository useful, please cite:
+```bash
+@misc{wang2026gradientsearninfluenceunifying,
+      title={Gradients Must Earn Their Influence: Unifying SFT with Generalized Entropic Objectives}, 
+      author={Zecheng Wang and Deyuan Liu and Chunshan Li and Yupeng Zhang and Zhengyun Zhao and Dianhui Chu and Bingning Wang and Dianbo Sui},
+      year={2026},
+      eprint={2602.11424},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.11424}, 
+}
+```
