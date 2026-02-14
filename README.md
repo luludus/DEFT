@@ -69,13 +69,18 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
 
 ### Requirements
 
-```bash
 Base environment: `python>=3.10` + a modern PyTorch/Transformers stack.
 
-Core packages: `torch`, `transformers`, `verl==0.4.0.dev0`, `vllm`, `flash_attn` (optional).
-
-Math eval: see `evaluations/math/requirements.txt` and `evaluations/math/latex2sympy/requirements.txt`.
+```bash
+pip install torch transformers flash-attn
+pip install verl==0.4.0.dev0
 ```
+Math eval dependencies:
+```bash
+pip install -r evaluations/math/requirements.txt
+pip install -r evaluations/math/latex2sympy/requirements.txt
+```
+
 
 ### Quick start
 
