@@ -73,18 +73,11 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
 
 ### Requirements
 
-This repo assumes a modern PyTorch + Transformers training stack.
+**Base environment**: `python>=3.10` + a modern PyTorch/Transformers stack.
 
-- **Training (core)**
-  - Python 3.10+
-  - `transformers`
-  - `verl(==0.4.0.dev0)`
-  - `torch`
-  - `vllm`
-  - `flash_attn`
+**Core packages**: `torch`, `transformers`, `verl==0.4.0.dev0`, `vllm`, `flash_attn` (optional).
 
-- **Evaluation (Math)**
-  - See `evaluations/math/requirements.txt` and `evaluations/math/latex2sympy` (includes `word2number`, `latex2sympy2`, etc.)
+**Math eval**: see `evaluations/math/requirements.txt` and `evaluations/math/latex2sympy/requirements.txt`.
 
 ### Quick start
 
