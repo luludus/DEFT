@@ -93,17 +93,6 @@ python scripts/one_click/script_generator.py \
   --run_script
 ```
 
-
-### Objective transformations
-
-The trainer supports multiple token-level objective transformations. Common examples:
-
-- **Original SFT / NLL**: `original`
-- **Probability error**: `p` 
-- **Cayley transform focus trajectory**: `Cayley_Trans`
-- **Dynamic Entropy Fine-Tuning**: `DEFT`
-
-
 ### Acknowledgements
 The implementation of this repository is built upon [veRL](https://github.com/volcengine/verl) and [Beyond-Log-Likelihood](https://github.com/GaotangLi/Beyond-Log-Likelihood). We sincerely appreciate the efforts of these teams for their contributions to open-source research and development.
 
