@@ -1,12 +1,66 @@
 ## DEFT: Dynamic Entropy Fine-Tuning
 
-### Abstract
+<div align="center">
 
-Standard negative log-likelihood (NLL) for Supervised Fine-Tuning (SFT) applies uniform token-level weighting. This rigidity creates a two-fold failure mode: (i) overemphasizing low-probability targets can amplify gradients on noisy supervision and disrupt robust priors, and (ii) uniform weighting provides weak sharpening when the model is already confident.
-Existing methods fail to resolve the resulting plasticity--stability dilemma, often suppressing necessary learning signals alongside harmful ones.
-To address this issue, we unify token-level SFT objectives within a generalized deformed-log family and expose a universal gate x error gradient structure, where the gate controls how much the model trusts its current prediction.
-By employing the Cayley transform, we map the model's continuously evolving uncertainty onto a continuous focus trajectory, which enables seamless interpolation between scenarios involving uncertain novel concepts and those involving well-established knowledge.
-We then introduce **Dynamic Entropy Fine-Tuning (DEFT)**, a parameter-free objective that modulates the trust gate using distribution concentration (Rényi-2 entropy) as a practical proxy for the model's predictive state. Extensive experiments and analyses demonstrate that DEFT achieves a better balance between exploration and exploitation, leading to improved overall performance.
+
+
+[![Github Repo](https://img.shields.io/badge/DEFT-black?logo=github)](https://github.com/luludus/DEFT)&#160;
+<a href="https://arxiv.org/pdf/2602.11424" target="_blank"><img src="https://img.shields.io/badge/Paper-b5212f.svg?logo=arxiv" height="21px"></a>
+</div>
+
+
+
+
+
+### Overview
+Standard SFT with token-level NLL uses **uniform token weighting**, which can over-amplify rare/low-probability targets (including noisy supervision) while offering diminishing sharpening gains on already confident tokens. As a result, training faces a persistent exploration--exploitation tension: **learn new concepts** without **overwriting robust priors**.
+
+We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **prediction-state-dependent**. Under a unified deformed-log family (including Tsallis q-log), we expose a universal **gate × error** gradient form. Using a Cayley-transform-derived continuous **focus trajectory**, optimization smoothly interpolates between NLL-like coverage when uncertain and probability-scaling-like sharpening when confident. A **parameter-free** DEFT variant further modulates the gate via distribution concentration (Rényi-2 entropy), serving as a computable proxy of predictive state.
+
+
+### Key Advantages
+
+- **Unified objective view (deformed-log / Tsallis q-log):** Within a unified deformed-log framework induced by Tsallis q-log, we reveal a universal **“gate × error”** gradient structure for token-level objectives, where the **gate** characterizes how much the model “trusts” its current prediction.
+- **Geometry-driven, continuous focusing (Cayley transform):** From a geometric perspective, we derive a continuous **focusing trajectory** via the Cayley transform, enabling the optimizer to smoothly behave like NLL when uncertain (coverage/learning) and like probability-scaling losses when confident (sharpening).
+- **Noise-aware, parameter-free adaptation (Rényi-2 concentration):** To further distinguish “unknown blind spots” from “conflicting noise” in data, we introduce a parameter-free DEFT variant that uses distribution concentration (Rényi-2 entropy) as a computable proxy of predictive state to adaptively modulate the gate during training.
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <div><img src="assets/overview.png" width="1000"/></div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <div><img src="assets/train_curve.png" width="1000"/></div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div align="center">
+
+
+  <div>
+    <img src="assets/token_grad_scatter_model_strong.png" width="900"/><br/>
+    <img src="assets/token_grad_scatter_model_inter.png" width="900"/><br/>
+    <img src="assets/token_grad_scatter_weak.png" width="900"/>
+  </div>
+
+
+  <div>
+    <b>Token-level gradient distributions across model capability regions.</b><br/>
+    Top: model-strong; Medium: model-medium; bottom: model-weak.
+  </div>
+</div>
+
 
 ### Repository layout
 
