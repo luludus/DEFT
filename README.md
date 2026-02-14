@@ -1,4 +1,4 @@
-## DEFT: Dynamic Entropy Fine-Tuning
+## DEFT: Dynamic Entropy Fine-Tuning for Adaptive Gradient Allocation in LLM Training
 
 <div align="center">
 
