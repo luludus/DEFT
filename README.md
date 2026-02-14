@@ -24,6 +24,7 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
 - **Geometry-driven, continuous focusing (Cayley transform):** From a geometric perspective, we derive a continuous **focusing trajectory** via the Cayley transform, enabling the optimizer to smoothly behave like NLL when uncertain (coverage/learning) and like probability-scaling losses when confident (sharpening).
 - **Noise-aware, parameter-free adaptation (Rényi-2 concentration):** To further distinguish “unknown blind spots” from “conflicting noise” in data, we introduce a parameter-free DEFT variant that uses distribution concentration (Rényi-2 entropy) as a computable proxy of predictive state to adaptively modulate the gate during training.
 
+#### Performace Comparison
 <div align="center">
   <table>
     <tr>
@@ -34,17 +35,7 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
   </table>
 </div>
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <div><img src="assets/train_curve.png" width="1000"/></div>
-      </td>
-    </tr>
-  </table>
-</div>
-
-
+#### Token-level gradient distributions across model capability regions. (Top: model-strong; Medium: model-medium; bottom: model-weak.)
 <div align="center">
 
 
@@ -53,12 +44,17 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
     <img src="assets/token_grad_scatter_model_inter.png" width="900"/><br/>
     <img src="assets/token_grad_scatter_weak.png" width="900"/>
   </div>
+</div>
 
-
-  <div>
-    <b>Token-level gradient distributions across model capability regions.</b><br/>
-    Top: model-strong; Medium: model-medium; bottom: model-weak.
-  </div>
+#### Adaptive gating dynamics during DEFT training
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <div><img src="assets/train_curve.png" width="1000"/></div>
+      </td>
+    </tr>
+  </table>
 </div>
 
 
