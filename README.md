@@ -96,9 +96,7 @@ python scripts/one_click/script_generator.py \
 
 ### Objective transformations
 
-The trainer supports multiple token-level objective transformations.
-
-Common examples:
+The trainer supports multiple token-level objective transformations. Common examples:
 
 - **Original SFT / NLL**: `original`
 - **Probability error**: `p` 
