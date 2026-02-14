@@ -79,19 +79,19 @@ We propose **Dynamic Entropy Fine-Tuning (DEFT)** to make gradient allocation **
 
 
 ```bash
-python scripts/one_click/script_generator.py \
-  --dataset $DATASET \
-  --model_save_name $MODEL_KEY \
-  --trainer_objective_trans $OBJECTIVE \
-  (--run_script)
-```
+# DATASET              : math | medical | figfont
+# MODEL_KEY            : predefined key in scripts/one_click/TEMPLATE.py (e.g., llama-3.1-8b, ...)
+# OBJECTIVE            : token-level objective transformation passed to trainer.objective_trans (original | p | Cayley_Trans | DEFT)
+# run_script           : optional; if set, the generated script will be executed immediately
+# nproc_per_node       : number of GPUs to use
+# cuda_visible_devices : GPU IDs (e.g., 0,1,2,3)
 
-- **`$DATASET`**: `math` | `medical` | `figfont`
-- **`$MODEL_KEY`**: one of the predefined keys in `scripts/one_click/TEMPLATE.py` (e.g., `qwen-2.5-math-7b`, `llama-3.1-8b`, ...)
-- **`$OBJECTIVE`**: the token-level SFT objective transformation, passed to `trainer.objective_trans`
-- **`--run_script`**: optional; Boolean flag if set, the generated script will be executed immediately
-- **`nproc_per_node`**: (Optional) Specifies the number of GPUs to use.
-- **`cuda_visible_devices`**: (Optional) Specifies specific GPU devices (e.g., --cuda_visible_devices 0,1,2,3).
+python scripts/one_click/script_generator.py \
+  --dataset "$DATASET" \
+  --model_save_name "$MODEL_KEY" \
+  --trainer_objective_trans "$OBJECTIVE" \
+  --run_script
+```
 
 
 ### Objective transformations
